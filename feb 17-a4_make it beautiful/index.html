@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shreya N - The Creative Designer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', Arial, sans-serif;
+            background: #FAFAFA;
+            color: #1F2937;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(135deg, #7C3AED 0%, #5B21B6 40%, #4C1D95 100%);
+            color: #FFFFFF;
+            padding: 60px 24px;
+            position: relative;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 120px;
+            background: linear-gradient(to bottom, transparent, #FAFAFA);
+        }
+
+        .hero .label {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: #DDD6FE;
+            margin-bottom: 16px;
+        }
+
+        .hero h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 72px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: -2px;
+            line-height: 1;
+            margin-bottom: 20px;
+        }
+
+        .hero .subtitle {
+            font-size: 18px;
+            font-weight: 300;
+            color: #DDD6FE;
+            max-width: 500px;
+        }
+
+        .hero .name-badge {
+            margin-top: 40px;
+            display: inline-block;
+            padding: 12px 32px;
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            border-radius: 50px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* SECTION BASE */
+        .section {
+            padding: 80px 48px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #7C3AED;
+            margin-bottom: 32px;
+            position: relative;
+            padding-left: 24px;
+        }
+
+        .section-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 12px;
+            height: 12px;
+            background: #7C3AED;
+            border-radius: 3px;
+        }
+
+        /* ABOUT */
+        .about-text {
+            font-size: 20px;
+            font-weight: 300;
+            color: #374151;
+            line-height: 1.8;
+            max-width: 700px;
+        }
+
+        .about-text strong {
+            font-weight: 600;
+            color: #5B21B6;
+        }
+
+        /* SKILLS - MARQUEE HORIZONTAL SCROLL */
+        .skills-section {
+            background: linear-gradient(90deg, #F5F3FF 0%, #EDE9FE 50%, #F5F3FF 100%);
+            padding: 60px 0;
+            overflow: hidden;
+        }
+
+        .skills-section .section-title {
+            padding-left: 72px;
+        }
+
+        .marquee-wrapper {
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .marquee-track {
+            display: flex;
+            gap: 16px;
+            animation: marqueeScroll 20s linear infinite;
+            width: max-content;
+        }
+
+        @keyframes marqueeScroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .marquee-item {
+            flex-shrink: 0;
+            padding: 14px 28px;
+            background: #FFFFFF;
+            border: 2px solid #DDD6FE;
+            border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            color: #5B21B6;
+            white-space: nowrap;
+            transition: all 0.3s;
+        }
+
+        .marquee-item:hover {
+            background: #7C3AED;
+            color: #FFFFFF;
+            border-color: #7C3AED;
+        }
+
+        /* PROJECTS */
+        .project-entry {
+            display: flex;
+            gap: 32px;
+            margin-bottom: 48px;
+            align-items: flex-start;
+        }
+
+        .project-number {
+            font-family: 'Poppins', sans-serif;
+            font-size: 64px;
+            font-weight: 900;
+            color: #EDE9FE;
+            line-height: 1;
+            flex-shrink: 0;
+            width: 80px;
+            text-align: right;
+        }
+
+        .project-content {
+            border-left: 3px solid #DDD6FE;
+            padding-left: 24px;
+        }
+
+        .project-content h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 22px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #1F2937;
+            margin-bottom: 4px;
+        }
+
+        .project-content .tech {
+            font-size: 12px;
+            font-weight: 700;
+            color: #7C3AED;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .project-content p {
+            font-size: 15px;
+            color: #6B7280;
+            line-height: 1.7;
+        }
+
+        /* HOBBIES */
+        .hobbies-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .hobby-card {
+            background: #FFFFFF;
+            border-radius: 12px;
+            padding: 32px 24px;
+            text-align: center;
+            border: 1px solid #EDE9FE;
+            transition: all 0.3s;
+        }
+
+        .hobby-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(124, 58, 237, 0.1);
+            border-color: #7C3AED;
+        }
+
+        .hobby-icon {
+            width: 56px;
+            height: 56px;
+            background: #F5F3FF;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+            font-size: 24px;
+        }
+
+        .hobby-card h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 15px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #374151;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #4C1D95;
+            color: #DDD6FE;
+            text-align: center;
+            padding: 40px 24px;
+        }
+
+        footer .footer-name {
+            font-family: 'Poppins', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: #FFFFFF;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+        }
+
+        footer .footer-contact {
+            font-size: 14px;
+            margin-bottom: 4px;
+        }
+
+        footer .footer-contact a {
+            color: #DDD6FE;
+            text-decoration: none;
+        }
+
+        footer .footer-contact a:hover {
+            color: #FFFFFF;
+        }
+
+        footer .copyright {
+            margin-top: 20px;
+            font-size: 12px;
+            color: #A78BFA;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 40px;
+            }
+
+            .section {
+                padding: 48px 24px;
+            }
+
+            .project-entry {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .project-number {
+                text-align: left;
+                font-size: 40px;
+                width: auto;
+            }
+
+            .hobbies-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-section .section-title {
+                padding-left: 48px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HERO -->
+    <section class="hero">
+        <p class="label">Portfolio 2026</p>
+        <h1>The Creative<br>Designer</h1>
+        <p class="subtitle">Full-Stack Developer, Graphic Designer, and Visual Storyteller based in Bangalore.</p>
+        <span class="name-badge">Shreya N</span>
+    </section>
+
+    <!-- ABOUT -->
+    <div class="section">
+        <h2 class="section-title">About</h2>
+        <p class="about-text">
+            I'm <strong>Shreya N</strong>, a Computer Science student at <strong>Global Academy of Technology, Bangalore</strong>. I build full-stack web applications and bring creative visions to life through <strong>graphic design</strong>, <strong>photography</strong>, and <strong>digital illustration</strong>. My work sits at the intersection of technology and visual storytelling.
+        </p>
+    </div>
+
+    <!-- SKILLS (MARQUEE) -->
+    <div class="skills-section">
+        <h2 class="section-title">Skills</h2>
+        <div class="marquee-wrapper">
+            <div class="marquee-track">
+                <span class="marquee-item">Python</span>
+                <span class="marquee-item">Java</span>
+                <span class="marquee-item">React.js</span>
+                <span class="marquee-item">Flask</span>
+                <span class="marquee-item">HTML / CSS</span>
+                <span class="marquee-item">REST APIs</span>
+                <span class="marquee-item">Firebase</span>
+                <span class="marquee-item">MySQL</span>
+                <span class="marquee-item">SQLite</span>
+                <span class="marquee-item">Graphic Design</span>
+                <span class="marquee-item">Photography</span>
+                <span class="marquee-item">Video Editing</span>
+                <span class="marquee-item">Digital Illustration</span>
+                <!-- Duplicate for seamless loop -->
+                <span class="marquee-item">Python</span>
+                <span class="marquee-item">Java</span>
+                <span class="marquee-item">React.js</span>
+                <span class="marquee-item">Flask</span>
+                <span class="marquee-item">HTML / CSS</span>
+                <span class="marquee-item">REST APIs</span>
+                <span class="marquee-item">Firebase</span>
+                <span class="marquee-item">MySQL</span>
+                <span class="marquee-item">SQLite</span>
+                <span class="marquee-item">Graphic Design</span>
+                <span class="marquee-item">Photography</span>
+                <span class="marquee-item">Video Editing</span>
+                <span class="marquee-item">Digital Illustration</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- PROJECTS -->
+    <div class="section">
+        <h2 class="section-title">Projects</h2>
+
+        <div class="project-entry">
+            <div class="project-number">01</div>
+            <div class="project-content">
+                <h3>Sortify</h3>
+                <p class="tech">Python &bull; IoT &bull; Sensors</p>
+                <p>An IoT-based smart waste management system that automatically classifies and sorts waste using sensor modules. Designed to improve recycling efficiency through real-time detection and intelligent sorting mechanisms.</p>
+            </div>
+        </div>
+
+        <div class="project-entry">
+            <div class="project-number">02</div>
+            <div class="project-content">
+                <h3>Loan Approval Prediction</h3>
+                <p class="tech">Python &bull; Machine Learning &bull; Scikit-learn</p>
+                <p>A predictive ML model that analyses applicant data to determine loan approval likelihood. Involved extensive data preprocessing, feature engineering, and model evaluation to maximise prediction accuracy.</p>
+            </div>
+        </div>
+
+        <div class="project-entry">
+            <div class="project-number">03</div>
+            <div class="project-content">
+                <h3>Cloud-Based Event Scheduler</h3>
+                <p class="tech">React.js &bull; Firebase &bull; REST APIs</p>
+                <p>A cloud-hosted scheduling application featuring real-time updates, user authentication, and full CRUD operations. Built with a responsive React.js frontend and Firebase backend for seamless performance.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- HOBBIES -->
+    <div class="section">
+        <h2 class="section-title">Hobbies</h2>
+        <div class="hobbies-grid">
+            <div class="hobby-card">
+                <div class="hobby-icon">&#128247;</div>
+                <h3>Photography</h3>
+            </div>
+            <div class="hobby-card">
+                <div class="hobby-icon">&#127912;</div>
+                <h3>Graphic Design</h3>
+            </div>
+            <div class="hobby-card">
+                <div class="hobby-icon">&#127909;</div>
+                <h3>Video Editing</h3>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-name">Shreya N</div>
+        <p class="footer-contact"><a href="mailto:shreyasana3@gmail.com">shreyasana3@gmail.com</a></p>
+        <p class="footer-contact">+91 93532 06937 &bull; Bangalore, India</p>
+        <p class="copyright">&copy; 2026 Shreya N. All rights reserved.</p>
+    </footer>
+</body>
+</html>

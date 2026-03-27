@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Marks Manager</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f0fdfa;
+            min-height: 100vh;
+            padding: 30px;
+            color: #1a1a2e;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #0D9488;
+            margin-bottom: 30px;
+        }
+
+        h1 span {
+            color: #475569;
+            font-weight: 400;
+        }
+
+        .main-container {
+            display: flex;
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            align-items: flex-start;
+        }
+
+        /* Left Side - Input Section */
+        .input-section {
+            flex: 0 0 350px;
+            background: white;
+            border-radius: 16px;
+            padding: 28px;
+            box-shadow: 0 4px 20px rgba(13, 148, 136, 0.1);
+            border-top: 4px solid #0D9488;
+            position: sticky;
+            top: 30px;
+        }
+
+        .input-section h2 {
+            font-size: 1.2rem;
+            color: #0D9488;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: #475569;
+            margin-bottom: 6px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px 14px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.9rem;
+            transition: border-color 0.3s;
+            outline: none;
+        }
+
+        .form-group input:focus {
+            border-color: #0D9488;
+        }
+
+        .btn-add {
+            width: 100%;
+            padding: 12px;
+            background: #0D9488;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.15s;
+            margin-top: 8px;
+        }
+
+        .btn-add:hover {
+            background: #0f766e;
+            transform: translateY(-1px);
+        }
+
+        .btn-add:active {
+            transform: translateY(0);
+        }
+
+        .error-msg {
+            color: #dc2626;
+            font-size: 0.8rem;
+            margin-top: 10px;
+            min-height: 20px;
+        }
+
+        /* Right Side - Table Section */
+        .table-section {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .summary-bar {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .summary-card {
+            background: white;
+            border-radius: 12px;
+            padding: 16px 22px;
+            box-shadow: 0 2px 12px rgba(13, 148, 136, 0.08);
+            flex: 1;
+            min-width: 140px;
+            text-align: center;
+        }
+
+        .summary-card .label {
+            font-size: 0.75rem;
+            color: #94a3b8;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 500;
+        }
+
+        .summary-card .value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #0D9488;
+            margin-top: 4px;
+        }
+
+        .summary-card .value.name-val {
+            font-size: 1rem;
+            color: #334155;
+        }
+
+        .table-wrapper {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(13, 148, 136, 0.1);
+            overflow: hidden;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        thead {
+            background: #0D9488;
+        }
+
+        thead th {
+            padding: 14px 16px;
+            color: white;
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-align: left;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        tbody tr {
+            border-bottom: 1px solid #f1f5f9;
+            transition: background 0.2s;
+        }
+
+        tbody tr:hover {
+            background: #f0fdfa;
+        }
+
+        tbody td {
+            padding: 12px 16px;
+            font-size: 0.9rem;
+            color: #334155;
+        }
+
+        .grade-badge {
+            display: inline-block;
+            padding: 3px 12px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.8rem;
+            color: white;
+        }
+
+        .grade-A { background: #10b981; }
+        .grade-B { background: #3b82f6; }
+        .grade-C { background: #f59e0b; }
+        .grade-D { background: #f97316; }
+        .grade-F { background: #ef4444; }
+
+        .btn-delete {
+            background: none;
+            border: 2px solid #fca5a5;
+            color: #dc2626;
+            padding: 5px 14px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .btn-delete:hover {
+            background: #fef2f2;
+            border-color: #dc2626;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 50px 20px;
+            color: #94a3b8;
+        }
+
+        .empty-state p {
+            font-size: 1.1rem;
+            margin-top: 8px;
+        }
+
+        @media (max-width: 768px) {
+            .main-container {
+                flex-direction: column;
+            }
+
+            .input-section {
+                flex: none;
+                width: 100%;
+                position: static;
+            }
+
+            .table-wrapper {
+                overflow-x: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Student Marks <span>Manager</span></h1>
+
+    <div class="main-container">
+        <!-- Left Side: Input Form -->
+        <div class="input-section">
+            <h2>Add New Student</h2>
+
+            <div class="form-group">
+                <label for="studentName">Student Name</label>
+                <input type="text" id="studentName" placeholder="Enter full name">
+            </div>
+
+            <div class="form-group">
+                <label for="physicsMarks">Physics (0 - 100)</label>
+                <input type="number" id="physicsMarks" min="0" max="100" placeholder="Physics marks">
+            </div>
+
+            <div class="form-group">
+                <label for="chemistryMarks">Chemistry (0 - 100)</label>
+                <input type="number" id="chemistryMarks" min="0" max="100" placeholder="Chemistry marks">
+            </div>
+
+            <div class="form-group">
+                <label for="mathMarks">Math (0 - 100)</label>
+                <input type="number" id="mathMarks" min="0" max="100" placeholder="Math marks">
+            </div>
+
+            <button class="btn-add" onclick="addStudent()">Add Student</button>
+            <p class="error-msg" id="errorMsg"></p>
+        </div>
+
+        <!-- Right Side: Table & Summary -->
+        <div class="table-section">
+            <div class="summary-bar" id="summaryBar">
+                <div class="summary-card">
+                    <div class="label">Total Students</div>
+                    <div class="value" id="totalStudents">0</div>
+                </div>
+                <div class="summary-card">
+                    <div class="label">Class Average</div>
+                    <div class="value" id="classAverage">--</div>
+                </div>
+                <div class="summary-card">
+                    <div class="label">Highest Scorer</div>
+                    <div class="value name-val" id="highestScorer">--</div>
+                </div>
+            </div>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Name</th>
+                            <th>Physics</th>
+                            <th>Chemistry</th>
+                            <th>Math</th>
+                            <th>Average</th>
+                            <th>Grade</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="studentTableBody">
+                        <tr>
+                            <td colspan="8">
+                                <div class="empty-state">
+                                    <p>No students added yet. Use the form on the left to get started.</p>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let students = [];
+
+        function getGrade(avg) {
+            if (avg >= 90) return 'A';
+            if (avg >= 80) return 'B';
+            if (avg >= 70) return 'C';
+            if (avg >= 60) return 'D';
+            return 'F';
+        }
+
+        function addStudent() {
+            const nameInput = document.getElementById('studentName');
+            const physicsInput = document.getElementById('physicsMarks');
+            const chemistryInput = document.getElementById('chemistryMarks');
+            const mathInput = document.getElementById('mathMarks');
+            const errorMsg = document.getElementById('errorMsg');
+
+            const name = nameInput.value.trim();
+            const physics = parseInt(physicsInput.value);
+            const chemistry = parseInt(chemistryInput.value);
+            const math = parseInt(mathInput.value);
+
+            // Validation
+            if (!name) {
+                errorMsg.textContent = 'Please enter the student name.';
+                return;
+            }
+
+            if (isNaN(physics) || isNaN(chemistry) || isNaN(math)) {
+                errorMsg.textContent = 'Please fill in all three subject marks.';
+                return;
+            }
+
+            if (physics < 0 || physics > 100 || chemistry < 0 || chemistry > 100 || math < 0 || math > 100) {
+                errorMsg.textContent = 'Marks must be between 0 and 100.';
+                return;
+            }
+
+            errorMsg.textContent = '';
+
+            const avg = ((physics + chemistry + math) / 3).toFixed(1);
+            const grade = getGrade(parseFloat(avg));
+
+            students.push({
+                name: name,
+                physics: physics,
+                chemistry: chemistry,
+                math: math,
+                average: parseFloat(avg),
+                grade: grade
+            });
+
+            // Clear inputs
+            nameInput.value = '';
+            physicsInput.value = '';
+            chemistryInput.value = '';
+            mathInput.value = '';
+            nameInput.focus();
+
+            renderTable();
+            updateSummary();
+        }
+
+        function removeStudent(index) {
+            students.splice(index, 1);
+            renderTable();
+            updateSummary();
+        }
+
+        function renderTable() {
+            const tbody = document.getElementById('studentTableBody');
+
+            if (students.length === 0) {
+                tbody.innerHTML = `
+                    <tr>
+                        <td colspan="8">
+                            <div class="empty-state">
+                                <p>No students added yet. Use the form on the left to get started.</p>
+                            </div>
+                        </td>
+                    </tr>`;
+                return;
+            }
+
+            tbody.innerHTML = students.map((s, i) => `
+                <tr>
+                    <td>${i + 1}</td>
+                    <td>${s.name}</td>
+                    <td>${s.physics}</td>
+                    <td>${s.chemistry}</td>
+                    <td>${s.math}</td>
+                    <td>${s.average}</td>
+                    <td><span class="grade-badge grade-${s.grade}">${s.grade}</span></td>
+                    <td><button class="btn-delete" onclick="removeStudent(${i})">Remove</button></td>
+                </tr>
+            `).join('');
+        }
+
+        function updateSummary() {
+            document.getElementById('totalStudents').textContent = students.length;
+
+            if (students.length === 0) {
+                document.getElementById('classAverage').textContent = '--';
+                document.getElementById('highestScorer').textContent = '--';
+                return;
+            }
+
+            const totalAvg = students.reduce((sum, s) => sum + s.average, 0) / students.length;
+            document.getElementById('classAverage').textContent = totalAvg.toFixed(1);
+
+            let topStudent = students[0];
+            for (let i = 1; i < students.length; i++) {
+                if (students[i].average > topStudent.average) {
+                    topStudent = students[i];
+                }
+            }
+            document.getElementById('highestScorer').textContent = topStudent.name;
+        }
+    </script>
+
+</body>
+</html>

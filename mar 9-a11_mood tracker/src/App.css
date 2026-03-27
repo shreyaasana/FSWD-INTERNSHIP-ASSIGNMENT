@@ -1,0 +1,200 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(135deg, #0D9488, #115E59);
+  font-family: 'Poppins', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 2rem 1rem;
+}
+
+.app-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.card-container {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 2.5rem 2rem;
+  max-width: 520px;
+  width: 100%;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+.app-title {
+  text-align: center;
+  font-size: 2rem;
+  color: #0D9488;
+  font-weight: 700;
+}
+
+.app-subtitle {
+  text-align: center;
+  color: #64748b;
+  margin-bottom: 2rem;
+  font-size: 0.95rem;
+}
+
+.mood-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.mood-circle {
+  width: 85px;
+  height: 85px;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  background: #f1f5f9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  gap: 2px;
+}
+
+.mood-circle:hover {
+  transform: scale(1.1);
+  background: #e2e8f0;
+}
+
+.mood-circle.selected {
+  background: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.mood-emoji {
+  font-size: 1.8rem;
+  line-height: 1;
+}
+
+.mood-label {
+  font-size: 0.6rem;
+  color: #475569;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.current-mood {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.mood-showcase {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem 3rem;
+  border-radius: 16px;
+  margin-bottom: 1rem;
+  gap: 0.25rem;
+}
+
+.showcase-emoji {
+  font-size: 3.5rem;
+}
+
+.showcase-text {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.log-btn {
+  padding: 0.6rem 2rem;
+  background: #0D9488;
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.log-btn:hover {
+  background: #115E59;
+}
+
+.mood-history {
+  border-top: 1px solid #e2e8f0;
+  padding-top: 1.5rem;
+}
+
+.history-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.history-header h2 {
+  font-size: 1.1rem;
+  color: #334155;
+}
+
+.clear-btn {
+  background: none;
+  border: none;
+  color: #ef4444;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.8rem;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.clear-btn:hover {
+  text-decoration: underline;
+}
+
+.history-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.history-entry {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  background: #f8fafc;
+  border-radius: 10px;
+  border-left: 4px solid #0D9488;
+}
+
+.entry-emoji {
+  font-size: 1.5rem;
+}
+
+.entry-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.entry-label {
+  font-weight: 600;
+  color: #334155;
+  font-size: 0.9rem;
+}
+
+.entry-time {
+  font-size: 0.75rem;
+  color: #94a3b8;
+}

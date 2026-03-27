@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Master Full Stack Development</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">DevMaster</a>
+            <ul class="nav-links">
+                <li><a href="#">Courses</a></li>
+                <li><a href="#">Projects</a></li>
+                <li><a href="#">Community</a></li>
+                <li><a href="#" class="nav-cta">Start Learning</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <span class="hero-badge">Full-Stack Web Development</span>
+                <h1 class="hero-title">Master Full Stack Development</h1>
+                <p class="hero-description">
+                    Learn to build modern web applications from scratch using React, Node.js, and MongoDB. Work on real-world projects, collaborate with peers, and launch your career as a full-stack developer.
+                </p>
+                <div class="hero-actions">
+                    <a href="#" class="btn-primary">Start Learning</a>
+                    <a href="#" class="btn-secondary">View Curriculum</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">50+</span>
+                        <span class="stat-label">Projects</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">200+</span>
+                        <span class="stat-label">Hours</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">24/7</span>
+                        <span class="stat-label">Support</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="https://placehold.co/560x420/162447/0D9488?text=Full+Stack+Dev" alt="Full Stack Development">
+            </div>
+        </div>
+    </section>
+
+    <!-- DEVICE SWITCHER -->
+    <div class="switcher-bar">
+        <span class="switcher-label">Preview:</span>
+        <button class="switcher-btn active" data-width="100%">Desktop</button>
+        <button class="switcher-btn" data-width="768px">Tablet</button>
+        <button class="switcher-btn" data-width="375px">Mobile</button>
+    </div>
+
+    <script>
+        // Device switcher functionality
+        const buttons = document.querySelectorAll('.switcher-btn');
+        const heroSection = document.querySelector('.hero');
+
+        buttons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                buttons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const width = btn.getAttribute('data-width');
+                heroSection.style.maxWidth = width;
+                heroSection.style.margin = width === '100%' ? '0' : '0 auto';
+                heroSection.style.transition = 'max-width 0.4s ease';
+            });
+        });
+    </script>
+</body>
+</html>

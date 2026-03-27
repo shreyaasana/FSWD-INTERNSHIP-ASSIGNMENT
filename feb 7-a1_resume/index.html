@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shreya N - Resume</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', Arial, sans-serif;
+            background-color: #F0FDFA;
+            color: #1F2937;
+            line-height: 1.6;
+        }
+
+        .resume-container {
+            display: flex;
+            max-width: 1100px;
+            margin: 40px auto;
+            background: #FFFFFF;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(13, 148, 136, 0.12);
+        }
+
+        /* LEFT SIDEBAR */
+        .sidebar {
+            width: 340px;
+            background: linear-gradient(180deg, #115E59 0%, #0D9488 100%);
+            color: #FFFFFF;
+            padding: 48px 32px;
+            flex-shrink: 0;
+        }
+
+        .sidebar h1 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 4px;
+            letter-spacing: 0.5px;
+        }
+
+        .sidebar .tagline {
+            font-size: 13px;
+            font-weight: 300;
+            color: #CCFBF1;
+            margin-bottom: 32px;
+            line-height: 1.5;
+        }
+
+        .sidebar-section {
+            margin-bottom: 28px;
+        }
+
+        .sidebar-section h3 {
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #CCFBF1;
+            margin-bottom: 12px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            padding-bottom: 6px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 10px;
+            font-size: 13px;
+        }
+
+        .contact-item .icon {
+            width: 20px;
+            margin-right: 10px;
+            flex-shrink: 0;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .contact-item a {
+            color: #FFFFFF;
+            text-decoration: none;
+        }
+
+        .contact-item a:hover {
+            color: #CCFBF1;
+        }
+
+        .skill-tag {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.15);
+            color: #FFFFFF;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            margin: 3px 4px 3px 0;
+            font-weight: 400;
+        }
+
+        .hobby-item {
+            font-size: 13px;
+            margin-bottom: 6px;
+            padding-left: 16px;
+            position: relative;
+        }
+
+        .hobby-item::before {
+            content: "~";
+            position: absolute;
+            left: 0;
+            color: #CCFBF1;
+            font-weight: 600;
+        }
+
+        /* MAIN CONTENT (RIGHT) */
+        .main-content {
+            flex: 1;
+            padding: 48px 40px;
+        }
+
+        .main-section {
+            margin-bottom: 36px;
+        }
+
+        .main-section h2 {
+            font-size: 20px;
+            font-weight: 700;
+            color: #115E59;
+            margin-bottom: 16px;
+            padding-bottom: 6px;
+            border-bottom: 3px solid #0D9488;
+            display: inline-block;
+        }
+
+        .edu-item, .project-item, .cert-item {
+            margin-bottom: 20px;
+        }
+
+        .edu-item h4, .project-item h4, .cert-item h4 {
+            font-size: 16px;
+            font-weight: 600;
+            color: #1F2937;
+            margin-bottom: 2px;
+        }
+
+        .edu-item .institution, .project-item .tech {
+            font-size: 13px;
+            color: #0D9488;
+            font-weight: 500;
+            margin-bottom: 4px;
+        }
+
+        .edu-item .dates {
+            font-size: 12px;
+            color: #6B7280;
+            font-weight: 400;
+        }
+
+        .edu-item p, .project-item p, .cert-item p {
+            font-size: 14px;
+            color: #4B5563;
+            margin-top: 4px;
+        }
+
+        .project-item ul {
+            margin-top: 6px;
+            padding-left: 20px;
+        }
+
+        .project-item ul li {
+            font-size: 13px;
+            color: #4B5563;
+            margin-bottom: 4px;
+        }
+
+        .summary-text {
+            font-size: 14px;
+            color: #4B5563;
+            line-height: 1.7;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 12px;
+            color: #6B7280;
+            background: #F0FDFA;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .resume-container {
+                flex-direction: column;
+                margin: 16px;
+            }
+
+            .sidebar {
+                width: 100%;
+                padding: 32px 24px;
+            }
+
+            .main-content {
+                padding: 32px 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="resume-container">
+        <!-- LEFT SIDEBAR -->
+        <aside class="sidebar">
+            <h1>Shreya N</h1>
+            <p class="tagline">Full-Stack Developer | Graphic Designer | Photographer</p>
+
+            <div class="sidebar-section">
+                <h3>Contact</h3>
+                <div class="contact-item">
+                    <span class="icon">&#9993;</span>
+                    <a href="mailto:shreyasana3@gmail.com">shreyasana3@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <span class="icon">&#9742;</span>
+                    <span>+91 93532 06937</span>
+                </div>
+                <div class="contact-item">
+                    <span class="icon">&#9906;</span>
+                    <span>Bangalore, India</span>
+                </div>
+            </div>
+
+            <div class="sidebar-section">
+                <h3>Technical Skills</h3>
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">Java</span>
+                <span class="skill-tag">React.js</span>
+                <span class="skill-tag">Flask</span>
+                <span class="skill-tag">HTML/CSS</span>
+                <span class="skill-tag">REST APIs</span>
+                <span class="skill-tag">Firebase</span>
+                <span class="skill-tag">MySQL</span>
+                <span class="skill-tag">SQLite</span>
+            </div>
+
+            <div class="sidebar-section">
+                <h3>Creative Skills</h3>
+                <span class="skill-tag">Graphic Design</span>
+                <span class="skill-tag">Photography</span>
+                <span class="skill-tag">Video Editing</span>
+                <span class="skill-tag">Digital Illustration</span>
+            </div>
+
+            <div class="sidebar-section">
+                <h3>Hobbies</h3>
+                <div class="hobby-item">Photography</div>
+                <div class="hobby-item">Graphic Design</div>
+                <div class="hobby-item">Video Editing</div>
+                <div class="hobby-item">Digital Illustration</div>
+            </div>
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <main class="main-content">
+            <section class="main-section">
+                <h2>About Me</h2>
+                <p class="summary-text">
+                    I am a B.Tech Computer Science student at Global Academy of Technology, Bangalore, passionate about building full-stack web applications and creating compelling visual content. I combine technical expertise in Python, Java, and React.js with a strong eye for design, photography, and digital illustration.
+                </p>
+            </section>
+
+            <section class="main-section">
+                <h2>Education</h2>
+                <div class="edu-item">
+                    <h4>B.Tech, Computer Science</h4>
+                    <p class="institution">Global Academy of Technology, Bangalore</p>
+                    <p class="dates">2023 &ndash; 2026</p>
+                </div>
+                <div class="edu-item">
+                    <h4>Senior Secondary (Science)</h4>
+                    <p class="institution">Surana PU College</p>
+                    <p class="dates">2020 &ndash; 2022</p>
+                </div>
+                <div class="edu-item">
+                    <h4>Secondary Education</h4>
+                    <p class="institution">BGS International Residential School</p>
+                    <p class="dates">2019 &ndash; 2020</p>
+                </div>
+            </section>
+
+            <section class="main-section">
+                <h2>Projects</h2>
+                <div class="project-item">
+                    <h4>Sortify &mdash; IoT Waste Management</h4>
+                    <p class="tech">Python, IoT, Sensors</p>
+                    <ul>
+                        <li>Designed and developed an IoT-based smart waste management system that classifies waste automatically.</li>
+                        <li>Integrated sensor modules for real-time waste detection and sorting, improving recycling efficiency.</li>
+                    </ul>
+                </div>
+                <div class="project-item">
+                    <h4>Loan Approval Prediction</h4>
+                    <p class="tech">Python, Machine Learning, Scikit-learn</p>
+                    <ul>
+                        <li>Built a machine learning model to predict loan approval outcomes based on applicant data.</li>
+                        <li>Performed data preprocessing, feature engineering, and model evaluation to optimize accuracy.</li>
+                    </ul>
+                </div>
+                <div class="project-item">
+                    <h4>Cloud-Based Event Scheduler</h4>
+                    <p class="tech">React.js, Firebase, REST APIs</p>
+                    <ul>
+                        <li>Developed a cloud-hosted event scheduling application with real-time updates and user authentication.</li>
+                        <li>Implemented CRUD functionality with Firebase backend and a responsive React.js frontend.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="main-section">
+                <h2>Creative Work</h2>
+                <p class="summary-text">
+                    Beyond coding, I bring ideas to life through graphic design, photography, and video editing. I enjoy creating digital illustrations, capturing moments through my lens, and producing polished video content for social media and personal projects.
+                </p>
+            </section>
+        </main>
+    </div>
+
+    <footer>
+        &copy; 2026 Shreya N
+    </footer>
+</body>
+</html>

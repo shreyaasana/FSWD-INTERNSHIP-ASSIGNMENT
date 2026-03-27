@@ -1,0 +1,9 @@
+{
+  "name": "folder-architect",
+  "version": "1.0.0",
+  "description": "Structured project with Node.js API backend and frontend client for team data retrieval",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "node server/server.js"
+  }
+}
